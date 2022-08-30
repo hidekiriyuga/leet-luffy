@@ -1,6 +1,7 @@
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
+        //for 1234567 and k=3
         //4321567 4321765 5671234
         k%=nums.size();
         reverse(nums.begin(),nums.end()-k);
