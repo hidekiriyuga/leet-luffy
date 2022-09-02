@@ -4,7 +4,7 @@ public:
         int sum=0;
         for(int i=0;i<nums.size();i++)
             sum+=nums[i];
-        //int total=;
-        return nums.size()*(nums.size()+1)/2-sum;
+        int total=nums.size()*(nums.size()+1)/2;
+        return total-sum;
     }
 };
