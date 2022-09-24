@@ -14,15 +14,6 @@ public:
             mp[nums[i]]=i;
         }
         return {-1,-1};
-            /*vector twoSum(vector& nums, int target) {
-   unordered_mapans;
-   for(int i=0;iint k=target-nums[i];
-      if(ans.count(k)){
-           return {ans[k],i};
-   }
-    ans[nums[i]]=i;
-}
-  return {-1,-1};
-}*/
+            
     }
 };
