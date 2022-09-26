@@ -4,8 +4,8 @@ public:
         int mini=INT_MAX;
         int maxp=0;
         for(int i=0;i<prices.size();i++){
-            mini=min(mini,prices[i]);
-            maxp=max(maxp,prices[i]-mini);
+            if(mini>prices[i])mini=prices[i];
+            if(maxp<prices[i]-mini)maxp=prices[i]-mini;
         }
         return maxp;
     }
