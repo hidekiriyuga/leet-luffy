@@ -4,7 +4,7 @@ public:
        // int size=nums.size();
         vector<int> a(nums.size(),0);
         int pos=0,neg=1;
-        for(auto n: nums){
+        for(int n: nums){
             if(n>0){
                 a[pos]=n;pos+=2;
             }
