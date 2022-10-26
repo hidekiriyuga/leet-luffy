@@ -13,7 +13,7 @@ public:
     int mid;
     int a=-1;
     while(l<=h){
-        mid=(l+h)/2;
+        mid=(l+h)>>1;
         if(arr[mid]==x){
             a=mid;
             if(strind)h=mid-1;
