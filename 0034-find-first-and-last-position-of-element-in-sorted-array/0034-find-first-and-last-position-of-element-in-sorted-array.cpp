@@ -1,8 +1,9 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& arr, int x) {
-        int s,e;
+        int s=-1,e=-1;
         s=search(arr,x,true);
+        if(s!=-1)
         e=search(arr,x,false);
         return {s,e};
     }
