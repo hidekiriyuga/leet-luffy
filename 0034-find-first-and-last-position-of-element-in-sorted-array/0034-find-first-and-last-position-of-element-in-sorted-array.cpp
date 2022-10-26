@@ -8,8 +8,8 @@ public:
     }
     
     int search(vector<int> arr,int x,bool strind){
-        int n=arr.size();
-        int l=0,h=n-1;
+        //int n=arr.size();
+        int l=0,h=arr.size()-1;
     int mid;
     int a=-1;
     while(l<=h){
