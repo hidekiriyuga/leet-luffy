@@ -10,7 +10,7 @@ class Solution{
 public:	
 	int findKRotation(int arr[], int n) {
 	    // code here
-	    int l=0,r=n-1,minval=INT_MAX,mid,ans;
+	    /*int l=0,r=n-1,minval=INT_MAX,mid,ans;
         while(l<=r){
             if(arr[l]<arr[r]){
                 if(minval>=arr[l]){
@@ -36,8 +36,17 @@ public:
             }
         }
         return ans;
+	}*/
+	int l=0,h=n-1,mid,ans=-1;
+	while(l<=h){
+	    mid=(l+h)/2;
+	    if(mid<h && arr[mid]>arr[mid+1]){ans= mid;break;}
+	    else if(mid>l && arr[mid-1]>arr[mid]){ans= mid-1;break;}
+	    else if(arr[mid]<=arr[l])h=mid-1;
+	    else l=mid+1;
 	}
-
+return ans+1;
+}
 };
 
 //{ Driver Code Starts.
