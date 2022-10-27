@@ -20,12 +20,12 @@ public:
     }*/
         
         int pi=pivot(nums);
-        //if(pi==-1)return -1;
-        //if(target==nums[pi])return pi;
-        int ans=bsearch(nums,target,0,pi);
-        
-        if(ans==-1)ans=bsearch(nums,target,pi+1,nums.size()-1);
-        return ans;
+        if(pi==-1)return bsearch(nums,target,0,nums.size()-1);
+        if(target==nums[pi])return pi;
+        if(target>=nums[0])
+        return bsearch(nums,target,0,pi-1);
+        else
+        return bsearch(nums,target,pi+1,nums.size()-1);
     }
         //kunal
     int bsearch(vector<int>& nums, int target,int l,int h){
