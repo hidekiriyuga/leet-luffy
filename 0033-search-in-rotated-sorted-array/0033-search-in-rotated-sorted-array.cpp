@@ -18,7 +18,7 @@ public:
         }
         return -1;
     }*/
-        
+        //kunal
         int pi=pivot(nums);
         if(pi==-1)return bsearch(nums,target,0,nums.size()-1);
         if(target==nums[pi])return pi;
