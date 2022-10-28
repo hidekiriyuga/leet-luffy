@@ -13,16 +13,13 @@ public:
             int mid=s+(e-s)/2;
             int sum=0;
             for(auto num:piles){
-                if(num<=mid)sum+=1;
-                else
-                { 
-                if(num%mid==0)sum+=num/mid;
-                else sum+=num/mid+1;
+                sum+=num/mid;
+                if(num%mid!=0)sum++;
                 
                 /*sum+=ceil(float(num/mid))+1;
                     float x=float(num/mid);
                     cout<<e<<" "<<ceil(num/mid)<<"\n";*/
-                }
+                
             }
             
             //if(sum==H)return mid;
