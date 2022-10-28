@@ -1,6 +1,6 @@
 class Solution {
 public:
-   /* int minDays(vector<int>& bloomDay, int m, int k) {
+    int minDays(vector<int>& bloomDay, int m, int k) {
         int start=INT_MAX,end=INT_MIN,mid;
         //int n=(m/1000000)*k;
        // cout<<bloomDay.size();
@@ -28,8 +28,8 @@ public:
         }
         return start;
         
-    }*/
-    int minDays(vector<int>& A, int m, int k) {
+    }
+   /* int minDays(vector<int>& A, int m, int k) {
         int n = A.size(), left = 1, right = 1e9;
         if (long(m) * long(k) > n) return -1;
         while (left < right) {
@@ -49,7 +49,7 @@ public:
             }
         }
         return left;
-    }
+    }*/
 };
 /*7 12 9
 10 12 11
