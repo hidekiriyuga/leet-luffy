@@ -13,15 +13,15 @@ public:
         }
         if(S[S.length()-1]!=' ')
         v.push_back(ans);
-        string a="";
+         ans="";
         //cout<<v.size();
        for(int i=v.size()-1;i>0;i--){
           // cout<<v[i];
-           a+=v[i];
-           a+=" ";
+           ans+=v[i];
+           ans+=" ";
             
         }
-        a+=v[0];
-        return a;
+        ans+=v[0];
+        return ans;
     }
 };
