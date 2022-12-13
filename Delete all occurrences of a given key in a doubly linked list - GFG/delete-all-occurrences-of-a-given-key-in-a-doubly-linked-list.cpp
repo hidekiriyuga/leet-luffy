@@ -61,7 +61,7 @@ class Solution {
         if (curr->prev != NULL)
             curr->prev->next = curr->next;
      
-        free(curr);
+        //free(curr);
     }
   
     void deleteAllOccurOfX(struct Node** head_ref, int x) {
