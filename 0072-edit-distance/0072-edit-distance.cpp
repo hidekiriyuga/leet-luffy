@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int cal(int i,int j,string s1,string s2,vector<vector<int>> &dp){
+    int cal(int i,int j,string &s1,string &s2,vector<vector<int>> &dp){
         if(i<0)return j+1;
         if(j<0)return i+1;
         if(dp[i][j]!=-1)return dp[i][j];
