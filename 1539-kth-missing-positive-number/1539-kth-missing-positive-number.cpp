@@ -10,10 +10,3 @@ public:
         return end+k;
     }
 };
-/*
-1 3 2
-
-
-
-
-*/
