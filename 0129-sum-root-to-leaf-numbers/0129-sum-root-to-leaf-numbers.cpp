@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    void dfs(TreeNode* root,long long &ans,long long temp){
+    void dfs(TreeNode* root,int &ans,int temp){
         if(root->left==NULL && root->right==NULL){
             temp=temp*10+root->val;
             ans+=temp;
@@ -22,7 +22,7 @@ public:
         if(root->right)dfs(root->right,ans,temp);
     }
     int sumNumbers(TreeNode* root) {
-        long long ans=0;
+        int ans=0;
         dfs(root,ans,0);
         return ans;
     }
