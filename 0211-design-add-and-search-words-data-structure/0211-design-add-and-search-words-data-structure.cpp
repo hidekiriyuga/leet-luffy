@@ -22,7 +22,7 @@ public:
             char c=word[i];
             if(c=='.'){
                 for(auto ch: curr->children)
-                    if(ch && ch->search(word.substr(i+1 ))) return true;
+                    if(ch && ch->search(word.substr(i+1))) return true;
                 return false;
             }
             if(curr->children[c-'a']==nullptr)return false;
