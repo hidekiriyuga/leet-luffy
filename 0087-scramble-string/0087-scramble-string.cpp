@@ -8,6 +8,12 @@ public:
         if(m.find(key)!=m.end()){
             return m[key];
         }
+        vector<int> f1(26),f2(26);
+        for(int i=0;i<n;i++){
+            f1[s1[i]-'a']++;
+            f2[s2[i]-'a']++;
+        }
+        if(f1!=f2)return m[key]=false;
         for(int i=1;i<n;i++){
             if(solve(s1.substr(0,i),s2.substr(0,i)) && solve(s1.substr(i),s2.substr(i))
               ||
