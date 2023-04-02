@@ -5,14 +5,14 @@ public:
         vector<int> ans;
         sort(potions.begin(),potions.end());
         for(int i=0;i<n;i++){
-            int l=0,r=m-1,mid,cnt=0;
+            int l=0,r=m-1,mid;
             while(l<=r){
                 mid=(l+r)/2;
-                if(long(spells[i])*potions[mid]>=success)cnt+=r-mid+1,r=mid-1;
+                if(long(spells[i])*potions[mid]>=success)/*cnt+=r-mid+1,*/r=mid-1;
                 else l=mid+1;
                 
             }
-            ans.push_back(cnt);
+            ans.push_back(m-r-1);
 
         }
         return ans;
