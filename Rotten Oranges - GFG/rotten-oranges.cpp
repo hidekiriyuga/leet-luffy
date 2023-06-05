@@ -9,36 +9,50 @@ class Solution
     //Function to find minimum time required to rot all oranges. 
     int orangesRotting(vector<vector<int>>& grid) {
         // Code here
-        int n=grid.size(),m=grid[0].size(),days=0,total=0,cnt=0;
-        queue<pair<int,int>> rot;
+        int n=grid.size();
+        int m=grid[0].size();
+        int cntFresh=0;
+        queue<pair<pair<int,int>,int>> q;
+        vector<vector<int>> vis(n,vector<int>(m,0));
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                if(grid[i][j]!=0)total++;
-                if(grid[i][j]==2)rot.push({i,j});
+                if(grid[i][j]==2){
+                    q.push({{i,j},0});
+                    vis[i][j]=2;
+                }
+                if(grid[i][j]==1){
+                    //q.push({{i,j},0});
+                    //vis[i][j]=1;
+                    cntFresh++;
+                }
+                
+                
             }
         }
-        int drow[4]={0,0,1,-1};
-        int dcol[4]={-1,1,0,0};
-        while(!rot.empty()){
-            int k=rot.size();
-            cnt+=k;
-            while(k--){
-                int x = rot.front().first, y = rot.front().second;
-                rot.pop();
-                for(int i = 0; i < 4; ++i){
-                    int nx = x + drow[i], ny = y + dcol[i];
-                    if(nx < 0 || ny < 0 || nx >= n || ny >= m || grid[nx][ny] != 1) continue;
-                    grid[nx][ny] = 2;
-                    rot.push({nx, ny});
-            }
-            }
-            
-            if(!rot.empty())days++;
-            
+        int tm=0;
+        int drow[] = {-1, 0, +1, 0};
+        int dcol[] = {0, 1, 0, -1}; 
+        int cnt = 0;
+        while(!q.empty()){
+            int r=q.front().first.first;
+            int c=q.front().first.second;
+            int t=q.front().second;
+            tm = max(tm, t);
+            q.pop();
+        for (int i = 0; i < 4; i++) {
+          int nrow = r + drow[i];
+          int ncol = c + dcol[i];
+          if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m &&
+            vis[nrow][ncol] == 0 && grid[nrow][ncol] == 1) {
+             q.push({{nrow, ncol}, t + 1}); 
+            vis[nrow][ncol] = 2;
+            cnt++;
+          }
         }
-        if(cnt==total)return days;
-        else return -1;
-    
+        }
+        if (cnt != cntFresh) return -1;
+
+      return tm;
     }
 };
 
