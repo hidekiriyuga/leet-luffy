@@ -1,15 +1,13 @@
 class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
-        int l=0,r=letters.size()-1,mid;
-                   // if(target >= letters[r])return letters[0];
-
+        int n=letters.size();
+        int l=0,r=n-1,mid;
         while(l<=r){
-            mid=(l+r)>>1;
+             mid=(l+r)/2;
             if(letters[mid]>target)r=mid-1;
             else l=mid+1;
         }
-        //if(l>letters.size()-1)return letters[0];
-        return letters[l%letters.size()];
+        return letters[l%n];
     }
 };
