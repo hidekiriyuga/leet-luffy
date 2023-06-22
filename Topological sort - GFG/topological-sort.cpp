@@ -3,9 +3,39 @@
 using namespace std;
 
 // } Driver Code Ends
+
 class Solution
 {
 	public:
+	//Function to return list containing vertices in Topological order. 
+	vector<int> topoSort(int V, vector<int> adj[]) 
+	{
+	    // code here
+	    vector<int> indeg(V,0);
+	    queue<int> q;
+	    for(int i=0;i<V;i++){
+	        for(auto it: adj[i])
+	        indeg[it]++;
+	    }
+	    //queue<int> q;
+	    for(int i=0;i<V;i++){
+	        if(indeg[i]==0)q.push(i);
+	    }
+	    vector<int> topo;
+	    while(!q.empty()){
+	        int c=q.front();
+	        q.pop();
+	        topo.push_back(c);
+	        for(auto it:adj[c]){
+	            indeg[it]--;
+	            if(indeg[it]==0)q.push(it);
+	        }
+	    }
+	    return topo;
+	}
+};
+/*
+public:
 	//Function to return list containing vertices in Topological order. 
 	void dfs(int node,stack<int> &s,vector<int> &vis,vector<int> adj[]){
 	    vis[node]=1;
@@ -33,7 +63,7 @@ class Solution
 	    return ans;
 	    
 	}
-};
+*/
 
 //{ Driver Code Starts.
 
