@@ -1,14 +1,20 @@
 class Solution {
 public:
-    int change(int amount, vector<int>& coins) {
-        vector<int> dp(amount + 1);
-        dp[0] = 1;
-        for (int coin : coins) {
-            for (int i = coin; i <= amount; i++) {
-                dp[i] += dp[i-coin];
-            }
+    int f(int ind,int val,vector<int>& coins,vector<vector<int>> &dp){
+        if(ind==0){
+            return (val%coins[0]==0);
+            
         }
-        return dp[amount];
+        if(dp[ind][val]!=-1)return dp[ind][val];
+        int nt=f(ind-1,val,coins,dp);
+        int t=0;
+        if(coins[ind]<=val)t=f(ind,val-coins[ind],coins,dp);
+        return dp[ind][val]=nt+t;
+    }
+    int change(int amount, vector<int>& coins) {
+        int n=coins.size();
+        vector<vector<int>> dp(n,vector<int>(amount+1,-1));
+        return f(n-1,amount,coins,dp);
 
     }
 };
