@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int solve(int ind,string s,unordered_map<string,int> &mp,vector<int> &dp){
+    int solve(int ind,string &s,unordered_map<string,int> &mp,vector<int> &dp){
         if(ind>=s.size())return 0;
         if(dp[ind]!=-1)return dp[ind];
         int ans=s.size();
