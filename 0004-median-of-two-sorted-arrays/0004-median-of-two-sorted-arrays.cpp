@@ -1,6 +1,6 @@
 class Solution {
 public:
-    double findMedianSortedArrays(vector<int>& array1, vector<int>& array2) {
+double findMedianSortedArrays(vector<int>& array1, vector<int>& array2) {
         int m=array1.size();
         int n=array2.size();
         if(m>n){
@@ -26,6 +26,6 @@ public:
         else if(l1>r2) high = cut1-1;
         else low = cut1+1;
     }
-    return 0.0; 
+    return 0.0;         
     }
 };
